@@ -50,9 +50,11 @@ class BasicAuth(Auth):
         Base64 decoded value
         """
 
-        if decoded_base64_authorization_header is None or\
-           type(decoded_base64_authorization_header) != str or\
-           ':' not in decoded_base64_authorization_header:
+        if (
+            decoded_base64_authorization_header is None or
+            not isinstance(decoded_base64_authorization_header, str) or
+            ':' not in decoded_base64_authorization_header
+           ):
 
             return (None, None)
 
