@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 """Define a class BasicAuth
 """
+from api.v1.auth.auth import Auth
 from flask import request
 from typing import List, TypeVar
 
 
-class BasicAuth:
+class BasicAuth(Auth):
     """ Basic Authentication Class """
     def extract_base64_authorization_header(self, authorization_header: str) -> str:
       """ Extract Base 64 Authorization Header """
