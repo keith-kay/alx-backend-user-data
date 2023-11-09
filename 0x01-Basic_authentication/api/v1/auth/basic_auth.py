@@ -50,12 +50,12 @@ class BasicAuth(Auth):
         Base64 decoded value
         """
 
-        if decoded_base64_authorization_header is None:
-            return None, None
-        if not isinstance(decoded_base64_authorization_header, str):
-            return None, None
-        if ':' not in decoded_base64_authorization_header:
-            return None, None
+        if decoded_base64_authorization_header is None or\
+           type(decoded_base64_authorization_header) != str or\
+           ':' not in decoded_base64_authorization_header:
+
+            return (None, None)
+
         credentials = decoded_base64_authorization_header.split(':', 1)
 
-        return credentials[0], credentials[1]
+        return (credentials[0], credentials[1])
