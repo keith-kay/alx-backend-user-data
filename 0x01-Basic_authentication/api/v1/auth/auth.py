@@ -1,13 +1,14 @@
-#!/usr/bin/env python
-"""Define a class auth
+#!/usr/bin/env python3
+"""Defines a class auth
 """
+
 
 from flask import request
 from typing import List, TypeVar
 
 
 class Auth():
-    """Defines authentication system
+    """ defines authentication system
     """
 
     def require_auth(self, path: str, excluded_paths: List[str]) -> bool:
@@ -23,7 +24,7 @@ class Auth():
         return True
 
     def authorization_header(self, request=None) -> str:
-        """Handles authentication request
+        """Handles authentication requests
         """
         if request is None:
             return None
@@ -33,5 +34,4 @@ class Auth():
     def current_user(self, request=None) -> TypeVar('User'):
         """Handles authentication users
         """
-        if request is None:
-            return None
+        return None
